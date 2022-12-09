@@ -10,29 +10,24 @@ let nextMonth = document.getElementById('next');
 let nameOfMonth = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 
 function createCalendar(year, month) {
-    let monthQuantity = new Date(year, month + 1, 0).getDate();
-    let dayFirst = new Date(year, month, 1).getDay();
+    let monthQuantity = new Date(year, month + 1, 0).getDate(); //колличество дней текущего месяца
     let dayLast = new Date(year, month + 1, 0).getDay();
     let monthDays = '';
+    let monthPrefix = new Date(year, month, 0).getDay();
 
-    let lastDate = new Date(year, month, 0).getDate();
+    let lastDate = new Date(year, month, 0).getDate(); //колличество дней предыдущего месяца
     let arrOtherDate = [];
-    let k = 0;
-
-    monthName.textContent = nameOfMonth[month];
-    
-   
 
     function daysBefor () {
         
-        for ( i = dayFirst; i > 0; i-- ) {
+        for ( i = monthPrefix; i > 0; i-- ) {
             arrOtherDate.unshift(lastDate);
             lastDate--;    
         };
+         console.log(arrOtherDate)
        
-        for ( i = 1; i < dayFirst; i++ ) {
-            monthDays += '<li class="prev-day">' + arrOtherDate[k];
-            k++;
+        for ( i = 0; i < monthPrefix; i++ ) {
+            monthDays += '<li class="prev-day">' + arrOtherDate[i];
         } 
     }
 
@@ -58,12 +53,14 @@ function createCalendar(year, month) {
     daysAfter();
     
     yearNum.textContent = year;
+    monthName.textContent = nameOfMonth[month];
     daysContainer.innerHTML = monthDays;
 }
 
 createCalendar(nowYear, nowMonth);
 
 prevMonth.addEventListener('click', () => {
+    //высчитываем текущий год месяц для следующего шага
     let curDate = new Date(yearNum.textContent,nameOfMonth.indexOf(monthName.textContent));
 
     curDate.setMonth(curDate.getMonth() - 1);
