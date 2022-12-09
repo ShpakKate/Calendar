@@ -1,0 +1,69 @@
+
+.header {
+    height: 2.5rem;
+    width: auto;
+    background-color: #e5e5e5;
+    border-bottom: 2px solid #c6c7c8;
+}
+
+.calender-wrapper {
+    width: 36.25rem;
+    height: auto;
+    background-color: #ffbbcc;
+    text-align: center;
+    padding-bottom: 10rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.year {
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.month {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.date-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.img {
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.weekdays {
+    padding: 0 0.2rem;
+    display: flex;
+    grid-template-columns: repeat(7,1fr);
+    list-style-type: none;
+}
+
+.days {
+    padding: 0 0.2rem;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    list-style-type: none;
+}
+
+.day-of-date {
+    width: 2.2rem;
+    height: 1.2rem;
+}
+
+.weekends {
+    color: #f00;
+}
+
+.prev-day {
+    color: #808080;
+}
