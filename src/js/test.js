@@ -18,12 +18,12 @@ function createCalendar(year, month) {
     let lastDate = new Date(year, month, 0).getDate(); //колличество дней предыдущего месяца
     let arrOtherDate = [];
 
-    function daysBefor () {
+    function daysBefore () {
         
-        for ( i = monthPrefix; i > 0; i-- ) {
+        for ( let i = monthPrefix; i > 0; i-- ) {
             arrOtherDate.unshift(lastDate);
             lastDate--;    
-        };
+        }
          console.log(arrOtherDate)
        
         for ( i = 0; i < monthPrefix; i++ ) {
@@ -32,17 +32,17 @@ function createCalendar(year, month) {
     }
 
     function daysAfter () {
-        k = 1;
+        let k = 1;
 
-        for ( i = dayLast; i <= 6 && i > 0; i++ ) {           
+        for ( let i = dayLast; i <= 6 && i > 0; i++ ) {           
             monthDays += '<li class="prev-day">' + k;
             k++;  
-        };
+        }
     }
 
-    daysBefor();
+    daysBefore();
  
-    for ( i = 1; i <= monthQuantity; i++ ) {
+    for ( let i = 1; i <= monthQuantity; i++ ) {
         let week = new Date(year, month, i).getDay();
 
         if ( week == 0 || week == 6 ) {
@@ -81,4 +81,3 @@ nextMonth.addEventListener('click', () => {
 
     createCalendar(stepYear, stepMonth);
 })
-
